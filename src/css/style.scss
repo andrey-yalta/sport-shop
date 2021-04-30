@@ -1,0 +1,54 @@
+@import "zero.scss";
+@import "header/header.scss";
+@import "navigation/navigation.scss";
+@import "products/products.scss";
+@import "cart-menu/cartMenu.scss";
+@import "footer/footer.scss";
+@import "item-page/itemPage.scss";
+@import "cart/cart.scss";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap');
+body{
+  padding: 30px;
+  font-family: 'Montserrat', 'sans-serif';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #000000;
+  background-color: #F5F5F5;
+
+}
+h1{
+  text-transform: uppercase;
+  font-size: 64px;
+  font-weight: 450;
+  line-height: 78px;
+  color: #565555;
+}
+
+h2{
+  font-size: 36px;
+  line-height: 44px;
+  color: #565555;
+}
+
+h6{
+  font-family: 'Montserrat', 'sans-serif';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #000000;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+}
+.none{
+  display: none;
+}
+h4{
+
+  font-size: 18px;
+  line-height: 22px;
+
+  color: #565555;
+}
