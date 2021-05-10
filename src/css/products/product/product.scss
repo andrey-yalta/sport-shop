@@ -63,11 +63,18 @@
 .product-blue{
   background: #5A4FD7;
 }
+.selected{
+  transform: scale(1.5);
+  border: 1px solid gray;
+}
 .product-red{
   background: #A60009;
 }
 .product-black{
   background: #000;
+}
+.product-gray{
+  background: #565555;
 }
 .product-white{
   background: #E5E5E5;;

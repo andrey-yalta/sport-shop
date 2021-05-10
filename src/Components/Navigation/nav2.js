@@ -4,8 +4,6 @@ import nav_settings from '../../assets/img/nav-settings.png'
 import {useDispatch, useSelector} from "react-redux";
 import {setSelectedBrand, setSelectedColor, setSelectedPriceSortBy, setSelectedSize} from "../../redux/shoes-reducer";
 
-import {Header} from "../Header/Header";
-
 
 export const Navigation = ()=>{
     const navigationMenu = [
@@ -22,12 +20,9 @@ export const Navigation = ()=>{
     const categories = {"company":brands,"sizes":sizes,"colors":colors,"price":priceSort}
     const [selectedCategoryItem, setSelectedCategoryItem] = React.useState("NIKE")
     const [selectedCategory, setSelectedCategory] = React.useState(navigationMenu[0])
-    const [isNavMenuOpen, setisNavMenuOpen] = React.useState(false)
+
     const setSelectedCategoryOnClick = (item)=>{
         setSelectedCategory(item);
-    }
-    const onNavMenuCLick =()=>{
-        setisNavMenuOpen(!isNavMenuOpen)
     }
     const setSelectedColorOnClick = (item,selectedCategory)=>{
         setSelectedCategoryItem(item)
@@ -63,18 +58,17 @@ export const Navigation = ()=>{
     }
     /// scroll
     const [scroll, setScroll] = React.useState(0);
-    const [scrollPrev, setScrollPrev] = React.useState(0);
-
+    const [navigationTop, setNavigationTop] = React.useState(100);
+    const navigationRef = React.createRef()
     const handleScroll = () => {
-        // console.log(window.scrollY)
-        setScroll(scrollPrev=>{
-            setScrollPrev(scrollPrev)
-            return window.scrollY})
+        console.log(window.scrollY)
+        setScroll(window.scrollY)
 
     };
 
     React.useEffect(() => {
         window.addEventListener("scroll", handleScroll);
+        setNavigationTop(navigationRef.current.offsetTop)
         return () =>window.removeEventListener("scroll", handleScroll);
 
     }, []);
@@ -83,14 +77,11 @@ export const Navigation = ()=>{
 
 
     return(
-        <div   className={(scroll < 160) ? "navigation__container" : " navigation__container sticky"}>
-           <div className={ ((scroll > 160) && (scrollPrev > scroll))? "":"none"}>
-               <Header isHeaderScroll={true} />
-           </div>
+        <div  ref={navigationRef} className={(scroll < 300) ? "navigation__container" : " navigation__container sticky"}>
 
             <div className={"navigation"}>
                 <div className="navigation__header">
-                    <h1>Мужская обувь</h1>
+                    <h1 >Мужская обувь</h1>
                 </div>
                 <div className="navigation__settings">
                     <div className="navigation__menu-up">
@@ -100,15 +91,9 @@ export const Navigation = ()=>{
 
                     </div>
                     <div className="navigation__menu-mobile">
-                        <img onClick={onNavMenuCLick} src={nav_settings} alt="settings"/>
-                        <div  className={isNavMenuOpen ? "navigation__menu-mobile-list":"navigation__menu-mobile-list none"}>
-                            <ul>
-                                {navigationMenu.map(u=><li key={`${u.id}_${u}`} onClick={()=>setSelectedCategoryOnClick(u)} >{u} </li>)}
-                            </ul>
-
-                        </div>
+                        <img src={nav_settings} alt="settings"/>
                     </div>
-                    <div className= "navigation__menu-down">
+                    <div className="navigation__menu-down">
                         <ul>
                             {categories[selectedCategory].map(u=> <li key={`${u.id}_${u}`} onClick={()=>setSelectedColorOnClick(u,selectedCategory )}  className={u === selectedCategoryItem ? 'active':''} >{u} <span>22</span></li>)}
                         </ul>

@@ -8,7 +8,7 @@
 			"colors": ["white","gray","black","red","blue"],
 			"id":"CDS 12932344-S",
 			"price":"120",
-			"sizes": [39, 40, 41, 43, 44, 45],
+			"sizes": [ 40, 41, 43, 44, 45],
 			"about": "Нет ничего лучше для полета, нет ничего более комфортного, нет ничего более испытанного. Кроссовки Nike Air Max 90 сохранили легендарную вафельную подошву оригинальной беговой модели, а также прошитые накладки и классические детали из материала TPU. Классические цвета создают свежий образ, а амортизация Max Air обеспечивает комфорт во время движения.",
 			"images":["https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/zwxes8uud05rkuei1mpt/кроссовки-air-max-90-R0p58M.png","https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/cdlwngdnmxgz6sminrmi/кроссовки-air-max-90-R0p58M.png","https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/q8og2dec1ethdbcehbdu/кроссовки-air-max-90-R0p58M.png","https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/dqhy6ep6fjcy54spxd1w/кроссовки-air-max-90-R0p58M.png"]
 		},
@@ -20,7 +20,7 @@
 			"colors": ["white","black","gray"],
 			"id":"CDS 12930244-E",
 			"price":"100",
-			"sizes": [39, 40, 41, 42, 43, 44, 45, 46],
+			"sizes": [ 40, 41, 42, 43, 44, 45, 46],
 			"about": "Заяви о своей любви к бренду в легендарной модели. Кроссовки Nike Air Force 1 Low — обновленная версия классической модели кроссовок из гладкой кожи с эффектными цветами и идеальным сиянием для блестящих результатов в игре. Надпись Just Do It. в стиле стрит-арт напоминает о том, что всегда нужно стремиться расширять границы возможного.",
 			"images":["https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/c2ad1ae9-0726-4712-b75c-e24618854fd3/кроссовки-air-force-1-low-zJR4fJ.png","https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/de6b804f-f0c7-41a4-ab00-04cf66229d3d/кроссовки-air-force-1-low-zJR4fJ.png","https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/42d78e52-e075-44f9-8f84-1f3608d0bd46/кроссовки-air-force-1-low-zJR4fJ.png","https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/6134833c-e753-4fc2-bbf0-8b3592efb101/кроссовки-air-force-1-low-zJR4fJ.png"]
 		},
@@ -179,6 +179,42 @@
 			"sizes": [39, 40, 41, 42, 43, 44, 45, 46],
 			"about": "Ощути комфорт в кроссовках Air Jordan 11 CMFT Low. Вдохновленные классической моделью Jordan эти кроссовки с низким профилем дополнены накладкой из лаковой кожи на носке и ткаными петлями для шнурков для удобства при завязывании шнурков. Подошва из мягкого пеноматериала с резиновыми вставками в ключевых зонах обеспечивает надежное сцепление.",
 			"images":["https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/702e3df6-6501-44c1-92b4-1cffa3eeab87/%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8-air-max-plus-3-j6VkJL.png","https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/95f0c88b-b994-477c-8cb6-8518bd1f4d2a/%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8-air-max-plus-3-j6VkJL.png","https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/51b6c138-fd38-4ebb-95c8-17518a0ebae5/%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8-air-max-plus-3-j6VkJL.png","https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/88e7c462-ce05-4642-8572-804218d8798f/%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8-air-max-plus-3-j6VkJL.png"]
+		},
+		{
+			"name": "Adidas CAMPUS",
+			"company": "adidas",
+			"line":"adidas originals",
+			"sex": "men",
+			"colors": ["blue","white"],
+			"id":"AAS44-001",
+			"price":"185",
+			"sizes": [39, 40, 41, 42, 43, 44],
+			"about": "Ретро-дизайн и современные материалы. Прогуляйся по центральному проспекту или до магазина на углу в этих кроссовках adidas, вдохновленных бегом. Замшевые вставки и контрастные три полоски подчеркивают спортивный стиль.",
+			"images":["https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy/d5cd90ecea4b497aa560ac3c0063363a_9366/Krossovki_Retrorun_sinij_FY8584_01_standard.jpg","https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy/e59ac9c99c3842ea862bac3c006414f4_9366/Krossovki_Retrorun_sinij_FY8584_02_standard_hover.jpg","https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy/bb6908b34dfe44e3aec7ac3c006443c0_9366/Krossovki_Retrorun_sinij_FY8584_04_standard.jpg","https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy/f44744a6f68f40759175ac3c00644b08_9366/Krossovki_Retrorun_sinij_FY8584_05_standard.jpg"]
+		},
+		{
+			"name": "Adidas ZX FLUX",
+			"company": "adidas",
+			"line":"adidas originals",
+			"sex": "men",
+			"colors": ["black","white"],
+			"id":"AAS44-002",
+			"price":"199",
+			"sizes": [39, 40, 41, 42, 43, 44],
+			"about": "В современных кроссовках ZX Flux ты вольешься в ритм большого города. Монохромная версия с сетчатым верхом. Три полоски в тон, пяточный каркас и промежуточная подошва из ЭВА.",
+			"images":["https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy/e51e00f078294ccc9446a7fb0072e730_9366/Krossovki_ZX_Flux_chernyj_S32279_01_standard.jpg","https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy/0f21bdfc2e114e0a877fa5bd00e3abad_9366/Krossovki_ZX_Flux_chernyj_S32279_02_standard_hover.jpg","https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy/f9c2354175334dcdbd37a7fb007d8cce_9366/Krossovki_ZX_Flux_chernyj_S32279_04_standard.jpg","https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy/59542149bd7b46009039a7fb007d9761_9366/Krossovki_ZX_Flux_chernyj_S32279_05_standard.jpg"]
+		},
+		{
+			"name": "Adidas ETERA",
+			"company": "adidas",
+			"line":"adidas originals",
+			"sex": "men",
+			"colors": ["black","white","red"],
+			"id":"AAS44-003",
+			"price":"149",
+			"sizes": [39, 40, 41, 42],
+			"about": "Часто проводишь весь день на ногах? Тогда тебе нужны по-настоящему удобные кроссовки, в которых можно целый день мотаться по городу или гулять с друзьями. Эти кроссовки adidas созданы для твоего комфорта с первого и до последнего шага.",
+			"images":["https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy/2e86c31d61fa40ea8ab5abdb0093b633_9366/Krossovki_Etera_chernyj_FY3514_01_standard.jpg","https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy/2bf89a36c2244193b76cabdb00996f5c_9366/Krossovki_Etera_chernyj_FY3514_02_standard.jpg","https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy/dcd0cafb9de14d7395c5abdb00997e4f_9366/Krossovki_Etera_chernyj_FY3514_04_standard.jpg","https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy/c26ea0622aef4dce847fabdb009985cb_9366/Krossovki_Etera_chernyj_FY3514_05_standard.jpg"]
 		}
 	]
 }

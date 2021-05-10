@@ -6,8 +6,8 @@ import {Footer} from "./Components/Footer/Footer";
 import {Navigation} from "./Components/Navigation/Navigation";
 import {Products} from "./Components/Products/Products";
 import {Route} from "react-router-dom";
-import {Cart} from "./Components/Cart/Cart";
-import {ItemPage} from "./Components/Item-page/ItemPage";
+import {ItemPageContainer} from "./Components/Item-page/ItemPageContainer";
+import CartContainer from "./Components/Cart/CartContainer";
 
 function App() {
   return (
@@ -15,9 +15,8 @@ function App() {
       <Header/>
       <Navigation/>
         <Route path={"/"} render={ ()=><Products/> } exact/>
-        <Route path={"/cart"} render={ ()=><Cart/> }/>
-        <Route path={"/item"} render={ ()=><ItemPage/> }/>
-
+        <Route path={"/cart"} render={ ()=><CartContainer/> }/>
+        <Route exact path={"/item/:itemId?"} render={ (props)=> <ItemPageContainer {...props}/> }/>
       <Footer/>
     </div>
   );

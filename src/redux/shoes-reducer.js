@@ -1,24 +1,34 @@
-import {shopAPI} from "../api/shopApi";
+import {shoesApi} from "../api/shopApi";
 
 const TOGGLE_IS_FETCHING = "TOGGLE_IS_FETCHING";
 const SET_SHOES = "SET_SHOES";
-const SET_SELECTED_CATEGORY = "SET_SELECTED_CATEGORY";
-const SET_SELECTED_SORT_BY = "SET_SELECTED_SORT_BY";
+const SET_SELECTED_SEX = "SET_SELECTED_SEX";
+const SET_SELECTED_COLOR = "SET_SELECTED_COLOR";
+const SET_SELECTED_SIZE = "SET_SELECTED_SIZE";
+const SET_SELECTED_BRAND = "SET_SELECTED_BRAND";
+const SET_SELECTED_PRICE_SORT_BY = "SET_SELECTED_PRICE_SORT_BY";
 
 let initialState = {
     shoes:[],
     isFetching:false,
-    SelectedCategory:null,
-    SelectedSortBy:0,
-    brandsCategories: {
-        "NIKE":15,
-        "ADDIDAS":22,
-        "NEW BALANCE":2,
-        "CONVERSE":5,
-        "VANS":12,
-        "PUMA":43
-    },
-    category :["Мужчины","Женщины","Распродажа"],
+    SelectedSex:"men",
+    SelectedPriceSortBy:null,
+    SelectedColor:null,
+    SelectedSize:null,
+    SelectedBrand:"NIKE",
+    brandsCategories: [
+        "NIKE",
+        "ADIDAS",
+        "NEW BALANCE",
+        "CONVERSE",
+        "VANS",
+        "PUMA",
+        "ALL"
+    ],
+    priceSort:["asc","desc"],
+    colors:["white","gray","black","red","blue", "all"],
+    sizes:[39, 40, 41, 42, 43, 44, 45, 46,"all"],
+    category :["men","women","sale"],
     categories: ["Мясные", "Вегетерианские", "Острые","Гриль", "Закрытые"],
     sortsArray:[ { name: 'популярности', type: 'popular', order: 'desc' },
         { name: 'цене', type: 'price', order: 'desc' },
@@ -36,13 +46,27 @@ const shoesReducer = (state = initialState, action) => {
             return {
                 ...state,shoes: action.shoes,
             }
-        case SET_SELECTED_CATEGORY:
+        case SET_SELECTED_SEX:
             return {
-                ...state,SelectedCategory: action.SelectedCategory,
+                ...state,SelectedSex: action.SelectedSex,
             }
-        case SET_SELECTED_SORT_BY:
+        case SET_SELECTED_SIZE:
             return {
-                ...state,SelectedSortBy: action.SelectedSortBy,
+                ...state,SelectedSize: action.SelectedSize,
+            }
+        case SET_SELECTED_COLOR:
+
+            return {
+                ...state,SelectedColor: action.SelectedColor,
+            }
+        case SET_SELECTED_BRAND:
+
+            return {
+                ...state,SelectedBrand: action.SelectedBrand,
+            }
+        case SET_SELECTED_PRICE_SORT_BY:
+            return {
+                ...state,SelectedPriceSortBy: action.setSelectedPriceSortBy,
             }
         default:
             return state;
@@ -56,17 +80,29 @@ export const toggleIsFetching = (isFetching) =>{
 export const setShoes = (shoes) =>{
     return {type:SET_SHOES,shoes}
 };
-export const setSelectedCategory = (SelectedCategory) =>{
-    return {type:SET_SELECTED_CATEGORY,SelectedCategory}
-};
-export const setSelectedSortBy = (SelectedSortBy) =>{
-    return {type:SET_SELECTED_SORT_BY,SelectedSortBy}
+export const setSelectedSex = (SelectedSex) =>{
+    return {type:SET_SELECTED_SEX,SelectedSex}
 };
 
-export const getShoes = (category,SelectedSortBy) => {
+export const setSelectedColor = (SelectedColor) =>{
+    return {type:SET_SELECTED_COLOR,SelectedColor}
+};
+export const setSelectedSize = (SelectedSize) =>{
+    return {type:SET_SELECTED_SIZE,SelectedSize}
+};
+export const setSelectedBrand = (SelectedBrand) =>{
+    return {type:SET_SELECTED_BRAND,SelectedBrand}
+};
+export const setSelectedPriceSortBy = (setSelectedPriceSortBy) =>{
+    return {type:SET_SELECTED_PRICE_SORT_BY,setSelectedPriceSortBy}
+};
+
+export const getShoes = (SelectedSex='men',SelectedColor=null,SelectedSizes=null,SelectedBrand=null,SelectedPriceSortBy=null) => {
     return async (dispatch) => {
+
         dispatch(toggleIsFetching(true)); //эта херня нужная чтобы включать и выключать анимацию
-        let data = await shopAPI.getShoes();
+
+        let data = await shoesApi.getShoes(SelectedSex,SelectedColor,SelectedSizes,SelectedBrand,SelectedPriceSortBy);
         dispatch(toggleIsFetching(false));
         dispatch(setShoes(data));
     }

@@ -1,34 +1,42 @@
 import React from 'react'
-import product_image_1  from "../../assets/img/product-image-1.png"
-import product_image_2  from "../../assets/img/product-image-2.png"
-import product_image_3  from "../../assets/img/product-image-3.png"
-import product_image_4  from "../../assets/img/product-image-4.png"
 import downArrow  from "../../assets/img/down-arrow.png"
+import {NavLink} from "react-router-dom";
 const style ={
     marginBottom:"20px"
 }
-export const ItemPage = ()=>{
+export const ItemPage = ({name,price,about,images,id,sizes,colors,onAddItemToCartHandler})=>{
+    const [selectedSize, setSelectedSize] = React.useState(sizes[0])
+    const [selectedColor, setSelectedColor] = React.useState(colors[0])
+    const setSelectedSizeOnClick = (size)=>{
+        setSelectedSize(size);
+    }
+    const setSelectedColorOnClick = (color)=>{
+        setSelectedColor(color);
+    }
+    const onAddItemToCart = (id,selectedSize,selectedColor)=>{
+        onAddItemToCartHandler(id,selectedSize,selectedColor)
+    }
     return(
         <div className="product-container">
             <div className="product-images">
-                <img src={product_image_1} alt="nike air max 90"/>
-                    <img src={product_image_2} alt="nike air max 90"/>
-                        <img src={product_image_3} alt="nike air max 90"/>
-                            <img src={product_image_4} alt="nike air max 90"/>
+                <img src={images[0]} alt="nike air max 90"/>
+                <img src={images[1]} alt="nike air max 90"/>
+                <img src={images[2]} alt="nike air max 90"/>
+                <img src={images[3]} alt="nike air max 90"/>
             </div>
             <div className="product-navigation">
-                <h2>NIKE AIR MAX 90</h2>
+                <h2>{name}</h2>
                 <div className="product-navigation__text-line">
                     <span>МУЖСКАЯ ОБУВЬ ДЛЯ ТРЕНИНГА</span>
-                    <span className="product-navigation__price">1200 руб</span>
+                    <span className="product-navigation__price">{price} $</span>
                 </div>
                 <div className="product-navigation__colors">
                     <span>Цвет: </span>
                     <div className="product__colors">
-                        <div className="product__color product-blue"/>
-                        <div className="product__color product-black"/>
-                        <div className="product__color product-red"/>
-                        <div className="product__color product-white"/>
+                        {colors.map(u=>
+                            <div key={`${u.id}_${u}`} onClick={()=>setSelectedColorOnClick(u)} className={u === selectedColor ? `product__color product-${u} selected`: `product__color product-${u}`} />
+                        )}
+
                     </div>
 
                 </div>
@@ -37,45 +45,25 @@ export const ItemPage = ()=>{
                         <span>Размер <img src={downArrow} alt="arrow"/></span> <span>42</span>
                     </div>
                     <div className="product-navigation__size-boxes">
-                        <div className="product-navigation__size-box">
-                            <span>39</span>
-                        </div>
-                        <div className="product-navigation__size-box">
-                            <span>40</span>
-                        </div>
-                        <div className="product-navigation__size-box box-active">
-                            <span>41</span>
-                        </div>
-                        <div className="product-navigation__size-box">
-                            <span>42</span>
-                        </div>
-                        <div className="product-navigation__size-box">
-                            <span>43</span>
-                        </div>
-                        <div className="product-navigation__size-box">
-                            <span>44</span>
-                        </div>
-                        <div className="product-navigation__size-box">
-                            <span>45</span>
-                        </div>
-                        <div className="product-navigation__size-box">
-                            <span>46</span>
-                        </div>
+                        {sizes.map(u=>
+                            <div key={`${u.id}_${u}`} onClick={()=>setSelectedSizeOnClick(u)}  className= {u === selectedSize ? 'product-navigation__size-box box-active':'product-navigation__size-box'}>
+                                <span>{u}</span>
+                            </div>
+                        )}
+
                     </div>
                 </div>
                 <div className="product-navigation__about">
                     <p>
-                        Кроссовки Nike React Metcon сочетают стабилизацию и сцепление оригинальной модели для тренинга с
-                        самой комфортной амортизацией Nike. Легкий дышащий верх и подошва для надежного сцепления
-                        обеспечивают комфорт во время интенсивных тренировок и упражнений с отягощением.
+                        {about}
                     </p>
-                    <span className="product-navigation__about-ID">CDS 12930244-E</span>
+                    <span className="product-navigation__about-ID">{id}</span>
                 </div>
                 <div className="product-navigation__buttons">
-                    <div className="product-navigation__button button-back" style={style}>
+                    <NavLink to="/"><div className="product-navigation__button button-back" style={style}>
                         <span>вернуться назад</span>
-                    </div>
-                    <div className="product-navigation__button button-add">
+                    </div></NavLink>
+                    <div onClick={()=>onAddItemToCart(id,selectedSize,selectedColor)} className="product-navigation__button button-add">
                         <span>Добавить в корзину</span>
                     </div>
                 </div>

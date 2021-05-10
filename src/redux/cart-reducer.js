@@ -7,7 +7,7 @@ const PLUS_CART_ITEM = "PLUS_CART_ITEM";
 
 
 let initialState = {
-    items: [],
+    cartItems: [],
     totalPrice:0,
     totalCount:0,
     isFetching:false,
@@ -23,15 +23,24 @@ const cartReducer = (state = initialState, action) => {
             }
 
         case ADD_SHOES_TO_CART:
-            const newItems = state.items
-            newItems.push(action.shoes)
-            console.log(newItems)
+            debugger;
             return {
-                ...state, items: newItems
 
+                ...state, cartItems: [...state.cartItems, action.shoes], totalPrice:state.totalPrice += +action.shoes.price, totalCount: state.totalCount +=1,
             }
-
-
+        case REMOVE_ITEM:
+            let newCartItems =  [...state.cartItems]
+            const idx = newCartItems.findIndex(u=> u.id === action.id)
+            const newPrice = state.totalPrice - newCartItems[idx].price
+            delete newCartItems[idx]
+            newCartItems = newCartItems.filter(u=> true)
+            return {
+                ...state, cartItems:newCartItems,totalPrice:newPrice , totalCount: state.totalCount -=1
+            }
+        case CLEAR_CART:
+            return {
+                ...state, cartItems: [], totalPrice: 0, totalCount: 0
+            }
         default:
             return state;
     }
