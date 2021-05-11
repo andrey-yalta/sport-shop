@@ -22,7 +22,6 @@ export const ItemPageContainer = (props)=>{
 
         addedItem.selectedColor = selectedColor
         addedItem.selectedSize = selectedSize
-        debugger;
         dispatch(addShoesToCart(addedItem));
     }
     if(!shoesItem){

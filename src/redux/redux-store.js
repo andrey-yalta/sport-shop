@@ -4,11 +4,14 @@ import thunkMiddleware from "redux-thunk";
 
 import shoesReducer from "./shoes-reducer";
 import cartReducer from "./cart-reducer";
+import {reducer as formReducer} from "redux-form"
 
 
 let reducers = combineReducers({
     shopPage:shoesReducer,
     cartPage:cartReducer,
+    form:formReducer,
+
 
 
 });

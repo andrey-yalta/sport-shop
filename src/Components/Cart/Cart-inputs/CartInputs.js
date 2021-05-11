@@ -2,15 +2,14 @@ import React from 'react'
 import master_card from "../../../assets/img/master-card.png";
 import visa from "../../../assets/img/visa.png";
 import mir from "../../../assets/img/mir.png";
+import {DataInputsRedux} from "./DataInputs";
 export const CartInputs = ()=>{
+    const onSubmitForm = (formData)=>{
+        console.log(formData)
+    }
     return (<div className="cart-inputs">
-        <div className="cart-inputs__data input">
-            <h4>ваши данные</h4>
-            <input type="text" name="first-name" placeholder="ИМЯ"/>
-            <input type="text" name="last-name" placeholder="ФАМИЛИЯ"/>
-            <input type="text" name="father-name" placeholder="ОТЧЕСТВО"/>
-            <input type="tel" name="number" placeholder="ТЕЛЕФОН"/>
-        </div>
+
+        <DataInputsRedux onSubmit={onSubmitForm}/>
 
         <div className="cart-inputs__delivery input">
             <h4>Данные доставки</h4>

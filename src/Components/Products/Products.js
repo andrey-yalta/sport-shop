@@ -9,13 +9,14 @@ export const Products = ()=>{
     const SelectedColor = useSelector(state => state.shopPage.SelectedColor)
     const SelectedSize = useSelector(state => state.shopPage.SelectedSize)
     const SelectedBrand = useSelector(state => state.shopPage.SelectedBrand)
+    const SearchLike = useSelector(state => state.shopPage.SearchLike)
     const SelectedPriceSortBy = useSelector(state => state.shopPage.SelectedPriceSortBy)
     const dispatch = useDispatch()
     React.useEffect(()=>{
 
-        dispatch(getShoes(SelectedSex,SelectedColor,SelectedSize,SelectedBrand,SelectedPriceSortBy))
+        dispatch(getShoes(SelectedSex,SelectedColor,SelectedSize,SelectedBrand,SelectedPriceSortBy,SearchLike))
 
-    },[SelectedColor, SelectedSex,SelectedSize, dispatch,SelectedBrand,SelectedPriceSortBy])
+    },[SelectedColor, SelectedSex,SelectedSize, dispatch,SelectedBrand,SelectedPriceSortBy,SearchLike])
     const shoes = useSelector(state => state.shopPage.shoes)
 
 

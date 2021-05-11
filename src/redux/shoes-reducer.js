@@ -6,6 +6,7 @@ const SET_SELECTED_SEX = "SET_SELECTED_SEX";
 const SET_SELECTED_COLOR = "SET_SELECTED_COLOR";
 const SET_SELECTED_SIZE = "SET_SELECTED_SIZE";
 const SET_SELECTED_BRAND = "SET_SELECTED_BRAND";
+const SET_SEARCH_LIKE = "SET_SEARCH_LIKE";
 const SET_SELECTED_PRICE_SORT_BY = "SET_SELECTED_PRICE_SORT_BY";
 
 let initialState = {
@@ -15,6 +16,7 @@ let initialState = {
     SelectedPriceSortBy:null,
     SelectedColor:null,
     SelectedSize:null,
+    SearchLike:null,
     SelectedBrand:"NIKE",
     brandsCategories: [
         "NIKE",
@@ -59,6 +61,10 @@ const shoesReducer = (state = initialState, action) => {
             return {
                 ...state,SelectedColor: action.SelectedColor,
             }
+        case SET_SEARCH_LIKE:
+            return {
+                ...state, SearchLike: action.SearchLike, SelectedBrand: null,
+            }
         case SET_SELECTED_BRAND:
 
             return {
@@ -93,16 +99,18 @@ export const setSelectedSize = (SelectedSize) =>{
 export const setSelectedBrand = (SelectedBrand) =>{
     return {type:SET_SELECTED_BRAND,SelectedBrand}
 };
+export const setSearchLike = (SearchLike) =>{
+    return {type:SET_SEARCH_LIKE,SearchLike}
+};
 export const setSelectedPriceSortBy = (setSelectedPriceSortBy) =>{
     return {type:SET_SELECTED_PRICE_SORT_BY,setSelectedPriceSortBy}
 };
 
-export const getShoes = (SelectedSex='men',SelectedColor=null,SelectedSizes=null,SelectedBrand=null,SelectedPriceSortBy=null) => {
+export const getShoes = (SelectedSex='men',SelectedColor=null,SelectedSizes=null,SelectedBrand=null,SelectedPriceSortBy=null, nameLikeIs=null) => {
     return async (dispatch) => {
 
         dispatch(toggleIsFetching(true)); //эта херня нужная чтобы включать и выключать анимацию
-
-        let data = await shoesApi.getShoes(SelectedSex,SelectedColor,SelectedSizes,SelectedBrand,SelectedPriceSortBy);
+        let data = await shoesApi.getShoes(SelectedSex,SelectedColor,SelectedSizes,SelectedBrand,SelectedPriceSortBy, nameLikeIs);
         dispatch(toggleIsFetching(false));
         dispatch(setShoes(data));
     }
