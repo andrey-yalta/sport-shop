@@ -2,14 +2,13 @@ import React from 'react'
 import master_card from "../../../assets/img/master-card.png";
 import visa from "../../../assets/img/visa.png";
 import mir from "../../../assets/img/mir.png";
-import {DataInputsRedux} from "./DataInputs";
-export const CartInputs = ()=>{
-    const onSubmitForm = (formData)=>{
-        console.log(formData)
-    }
-    return (<div className="cart-inputs">
+import {DataInputs} from "./DataInputs";
+import {reduxForm} from "redux-form";
+export const CartInputs = (props)=>{
 
-        <DataInputsRedux onSubmit={onSubmitForm}/>
+    return (<form onSubmit={props.handleSubmit} className="cart-inputs">
+
+        <DataInputs />
 
         <div className="cart-inputs__delivery input">
             <h4>Данные доставки</h4>
@@ -40,7 +39,10 @@ export const CartInputs = ()=>{
             </div>
         </div>
         <div className="cart-button disabled">
-            <span>оплатить</span>
+            <button><span>оплатить</span></button>
         </div>
-    </div>)
+    </form>)
 }
+export const CartInputsRedux = reduxForm({
+    form:"data"
+})(CartInputs)

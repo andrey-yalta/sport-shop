@@ -1,9 +1,11 @@
 import React from 'react'
 import {CartItemContainer} from "./Cart-item/CartItemContainer";
-import {CartInputs} from "./Cart-inputs/CartInputs";
+import {CartInputsRedux} from "./Cart-inputs/CartInputs";
 
 export const Cart = ({cartItems,totalPrice}) =>{
-
+    const onSubmitForm = (formData)=>{
+        console.log(formData)
+    }
     return(
         <div className="cart-main">
             <div className="cart cart-page">
@@ -16,7 +18,7 @@ export const Cart = ({cartItems,totalPrice}) =>{
                     <h6>{totalPrice} $</h6>
                 </div>
             </div>
-            <CartInputs/>
+            <CartInputsRedux onSubmit={onSubmitForm}/>
         </div>
     )
 }

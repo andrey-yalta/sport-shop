@@ -7,10 +7,18 @@
     height: auto;
   }
 }
+.cart-input__error{
+  border: 1px solid  #A60009;
+}
 .cart-inputs{
   width: 49%;
   // background: #FFF;
   height: 100%;
+  &__error{
+
+    color: #A60009;
+    text-transform: uppercase;
+  }
 
   .cart-inputs__bank-cart{
     input{
