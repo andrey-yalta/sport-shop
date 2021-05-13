@@ -9,13 +9,17 @@ export const ItemPageContainer = (props)=>{
 
     const itemId =  props.match.params.itemId
     const dispatch = useDispatch();
-    React.useEffect(()=>{
-        dispatch(getShoes());
-
-    },[dispatch])
     const shoes = useSelector(state => state.shopPage.shoes)
-    const shoesItem = shoes.filter(u=>u.id === itemId)[0]
+    React.useEffect(()=>{
+        if(shoes.length === 0){
+            debugger;
+            dispatch(getShoes({id:itemId}));
+        }
 
+    },[dispatch, itemId, shoes])
+
+    const shoesItem = shoes.filter(u=>u.id === itemId)[0]
+    debugger;
     const onAddItemToCartHandler = (id,selectedSize,selectedColor)=>{
 
         const addedItem = {...shoes.filter(u=>u.id === id)[0]}

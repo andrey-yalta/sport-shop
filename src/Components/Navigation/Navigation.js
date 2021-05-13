@@ -83,36 +83,36 @@ export const Navigation = ()=>{
 
 
     return(
-        <div   className={(scroll < 160) ? "navigation__container" : " navigation__container sticky"}>
-           <div className={ ((scroll > 160) && (scrollPrev > scroll))? "":"none"}>
+        <div   className={(scroll < 160) ? "navigation" : " navigation sticky"}>
+           <div className={ ((scroll > 160) && (scrollPrev > scroll))? "navigation__header-scroll-up":"navigation__header-scroll-up none"}>
                <Header isHeaderScroll={true} />
            </div>
 
-            <div className={"navigation"}>
-                <div className="navigation__header">
+            <div className={"navigation-body"}>
+                <div className="navigation-body__header">
                     <h1>Мужская обувь</h1>
                 </div>
-                <div className="navigation__settings">
-                    <div className="navigation__menu-up">
+                <div className="navigation-body__settings">
+                    <nav className="navigation-body__menu-up">
                         <ul>
                             {navigationMenu.map(u=><li key={`${u.id}_${u}`} onClick={()=>setSelectedCategoryOnClick(u)} >{u} <img className={u === selectedCategory ?"img-active":""} src={down_arrow} alt=""/></li>)}
                         </ul>
 
-                    </div>
-                    <div className="navigation__menu-mobile">
+                    </nav>
+                    <div className="navigation-body__menu-mobile">
                         <img onClick={onNavMenuCLick} src={nav_settings} alt="settings"/>
-                        <div  className={isNavMenuOpen ? "navigation__menu-mobile-list":"navigation__menu-mobile-list none"}>
+                        <nav  className={isNavMenuOpen ? "navigation-body__menu-mobile-list":"navigation-body__menu-mobile-list none"}>
                             <ul>
                                 {navigationMenu.map(u=><li key={`${u.id}_${u}`} onClick={()=>setSelectedCategoryOnClick(u)} >{u} </li>)}
                             </ul>
 
-                        </div>
+                        </nav>
                     </div>
-                    <div className= "navigation__menu-down">
+                    <nav className= "navigation-body__menu-down">
                         <ul>
                             {categories[selectedCategory].map(u=> <li key={`${u.id}_${u}`} onClick={()=>setSelectedColorOnClick(u,selectedCategory )}  className={u === selectedCategoryItem ? 'active':''} >{u} <span>22</span></li>)}
                         </ul>
-                    </div>
+                    </nav>
 
                 </div>
             </div>

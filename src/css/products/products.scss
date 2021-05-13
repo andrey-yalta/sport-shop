@@ -1,8 +1,11 @@
 @import "product/product.scss";
+@import "paginator.scss";
 .products{
+  min-height: 90vh;
+}
+.products-items{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-
 }
 
 // @media (max-width: 12000px) {
@@ -11,17 +14,17 @@
 //   }
 // }
 @media (max-width: 1200px) {
-  .products{
+  .products-items{
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
 @media (max-width: 900px) {
-  .products{
+  .products-items{
     grid-template-columns: 1fr 1fr ;
   }
 }
 @media (max-width: 600px) {
-  .products{
+  .products-items{
     grid-template-columns: 1fr;
   }
 }

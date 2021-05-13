@@ -5,8 +5,10 @@ const SET_SHOES = "SET_SHOES";
 const SET_SELECTED_SEX = "SET_SELECTED_SEX";
 const SET_SELECTED_COLOR = "SET_SELECTED_COLOR";
 const SET_SELECTED_SIZE = "SET_SELECTED_SIZE";
+const SET_TOTAL_COUNT_ITEMS = "SET_TOTAL_COUNT_ITEMS";
 const SET_SELECTED_BRAND = "SET_SELECTED_BRAND";
 const SET_SEARCH_LIKE = "SET_SEARCH_LIKE";
+const SET_SELECTED_PAGE = "SET_SELECTED_PAGE";
 const SET_SELECTED_PRICE_SORT_BY = "SET_SELECTED_PRICE_SORT_BY";
 
 let initialState = {
@@ -16,6 +18,9 @@ let initialState = {
     SelectedPriceSortBy:null,
     SelectedColor:null,
     SelectedSize:null,
+    SelectedPage:1,
+    totalCountItems:null,
+    totalCountPages: 2,
     SearchLike:null,
     SelectedBrand:"NIKE",
     brandsCategories: [
@@ -48,14 +53,24 @@ const shoesReducer = (state = initialState, action) => {
             return {
                 ...state,shoes: action.shoes,
             }
+
         case SET_SELECTED_SEX:
             return {
                 ...state,SelectedSex: action.SelectedSex,
+            }
+        case SET_SELECTED_PAGE:
+            return {
+                ...state,SelectedPage: action.SelectedPage,
             }
         case SET_SELECTED_SIZE:
             return {
                 ...state,SelectedSize: action.SelectedSize,
             }
+        case SET_TOTAL_COUNT_ITEMS:
+            return {
+                ...state,totalCountItems: action.totalCountItems,
+            }
+
         case SET_SELECTED_COLOR:
 
             return {
@@ -86,12 +101,19 @@ export const toggleIsFetching = (isFetching) =>{
 export const setShoes = (shoes) =>{
     return {type:SET_SHOES,shoes}
 };
+export const setTotalCountItems = (totalCountItems) =>{
+    return {type:SET_TOTAL_COUNT_ITEMS,totalCountItems}
+};
 export const setSelectedSex = (SelectedSex) =>{
     return {type:SET_SELECTED_SEX,SelectedSex}
 };
 
 export const setSelectedColor = (SelectedColor) =>{
     return {type:SET_SELECTED_COLOR,SelectedColor}
+};
+export const setSelectedPage = (SelectedPage) =>{
+
+    return {type:SET_SELECTED_PAGE,SelectedPage}
 };
 export const setSelectedSize = (SelectedSize) =>{
     return {type:SET_SELECTED_SIZE,SelectedSize}
@@ -106,12 +128,21 @@ export const setSelectedPriceSortBy = (setSelectedPriceSortBy) =>{
     return {type:SET_SELECTED_PRICE_SORT_BY,setSelectedPriceSortBy}
 };
 
-export const getShoes = (SelectedSex='men',SelectedColor=null,SelectedSizes=null,SelectedBrand=null,SelectedPriceSortBy=null, nameLikeIs=null) => {
+export const getShoes = ({SelectedSex='men',SelectedColor=null,SelectedSizes=null,SelectedBrand=null,SelectedPriceSortBy=null, nameLikeIs=null, SelectedPage=1,id=null}) => {
     return async (dispatch) => {
-
+        debugger;
         dispatch(toggleIsFetching(true)); //эта херня нужная чтобы включать и выключать анимацию
-        let data = await shoesApi.getShoes(SelectedSex,SelectedColor,SelectedSizes,SelectedBrand,SelectedPriceSortBy, nameLikeIs);
+        let data = await shoesApi.getShoes(SelectedSex,SelectedColor,SelectedSizes,SelectedBrand,SelectedPriceSortBy, nameLikeIs,SelectedPage,id);
         dispatch(toggleIsFetching(false));
-        dispatch(setShoes(data));
+        dispatch(setShoes(data.data));
+        dispatch(setTotalCountItems(data.headers['x-total-count']));
+    }
+}
+
+export const isFetchingDown = ()=>{
+    return async (dispatch)=>{
+        dispatch(toggleIsFetching(true));
+        // let data = await shoesApi.getShoes(initialState.SelectedSex,initialState.SelectedColor,initialState.SelectedSizes,initialState.SelectedBrand,initialState.SelectedPriceSortBy, initialState.nameLikeIs,page);
+
     }
 }

@@ -1,0 +1,24 @@
+.products__paginator{
+
+  text-align: center;
+
+  ul{
+    li{
+      display: inline;
+      margin-right: 10px;
+      cursor: pointer;
+      text-transform: uppercase;
+      color: #BAB6B6;
+    }
+  }
+  .products__paginator-active{
+    color: black;
+
+  }
+  .products__paginator-prev{
+    color: black;
+  }
+  .next{
+    color: black;
+  }
+}

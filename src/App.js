@@ -4,7 +4,7 @@ import {Header} from "./Components/Header/Header";
 import React from "react";
 import {Footer} from "./Components/Footer/Footer";
 import {Navigation} from "./Components/Navigation/Navigation";
-import {Products} from "./Components/Products/Products";
+import {PaginateProducts} from "./Components/Products/PaginateProfucts";
 import {Route} from "react-router-dom";
 import {ItemPageContainer} from "./Components/Item-page/ItemPageContainer";
 import CartContainer from "./Components/Cart/CartContainer";
@@ -14,7 +14,7 @@ function App() {
     <div>
       <Header/>
       <Navigation/>
-        <Route path={"/"} render={ ()=><Products/> } exact/>
+        <Route path={"/"} render={ ()=><PaginateProducts/> } exact/>
         <Route path={"/cart"} render={ ()=><CartContainer/> }/>
         <Route exact path={"/item/:itemId?"} render={ (props)=> <ItemPageContainer {...props}/> }/>
       <Footer/>
