@@ -130,7 +130,6 @@ export const setSelectedPriceSortBy = (setSelectedPriceSortBy) =>{
 
 export const getShoes = ({SelectedSex='men',SelectedColor=null,SelectedSizes=null,SelectedBrand=null,SelectedPriceSortBy=null, nameLikeIs=null, SelectedPage=1,id=null}) => {
     return async (dispatch) => {
-        debugger;
         dispatch(toggleIsFetching(true)); //эта херня нужная чтобы включать и выключать анимацию
         let data = await shoesApi.getShoes(SelectedSex,SelectedColor,SelectedSizes,SelectedBrand,SelectedPriceSortBy, nameLikeIs,SelectedPage,id);
         dispatch(toggleIsFetching(false));

@@ -1,93 +1,17 @@
 import React from 'react'
 import down_arrow from '../../assets/img/down-arrow.png'
 import nav_settings from '../../assets/img/nav-settings.png'
-import {useDispatch, useSelector} from "react-redux";
-import {setSelectedBrand, setSelectedColor, setSelectedPriceSortBy, setSelectedSize} from "../../redux/shoes-reducer";
+import {HeaderContainer} from "../Header/HeaderContainer";
 
-import {Header} from "../Header/Header";
-
-
-export const Navigation = ()=>{
-    const navigationMenu = [
-        "company",
-        "colors",
-        "sizes",
-        "price"
-    ]
-    const dispatch = useDispatch();
-    const brands = useSelector(state => state.shopPage.brandsCategories);
-    const sizes= useSelector(state => state.shopPage.sizes);
-    const colors = useSelector(state => state.shopPage.colors);
-    const priceSort = useSelector(state => state.shopPage.priceSort);
-    const categories = {"company":brands,"sizes":sizes,"colors":colors,"price":priceSort}
-    const [selectedCategoryItem, setSelectedCategoryItem] = React.useState("NIKE")
-    const [selectedCategory, setSelectedCategory] = React.useState(navigationMenu[0])
-    const [isNavMenuOpen, setisNavMenuOpen] = React.useState(false)
-    const setSelectedCategoryOnClick = (item)=>{
-        setSelectedCategory(item);
-    }
-    const onNavMenuCLick =()=>{
-        setisNavMenuOpen(!isNavMenuOpen)
-    }
-    const setSelectedColorOnClick = (item,selectedCategory)=>{
-        setSelectedCategoryItem(item)
-        switch (selectedCategory) {
-            case "colors":
-            {
-
-                dispatch(setSelectedColor(item))
-                break
-            }
-            case "sizes":
-            {
-
-                dispatch(setSelectedSize(item))
-                break
-            }
-            case "company":
-            {
-
-                dispatch(setSelectedBrand(item))
-                break
-            }
-            case "price":
-            {
-
-                dispatch(setSelectedPriceSortBy(item))
-                break
-            }
-            default:
-                return true;
-        }
-
-    }
-    /// scroll
-    const [scroll, setScroll] = React.useState(0);
-    const [scrollPrev, setScrollPrev] = React.useState(0);
-
-    const handleScroll = () => {
-        // console.log(window.scrollY)
-        setScroll(scrollPrev=>{
-            setScrollPrev(scrollPrev)
-            return window.scrollY})
-
-    };
-
-    React.useEffect(() => {
-        window.addEventListener("scroll", handleScroll);
-        return () =>window.removeEventListener("scroll", handleScroll);
-
-    }, []);
-    ///scroll
-
-
+export const Navigation =({scroll,scrollPrev,navigationMenu,setSelectedCategoryOnClick,
+                              selectedCategory,onNavMenuCLick,isNavMenuOpen,categories,
+                              setSelectedColorOnClick,selectedCategoryItem})=>{
 
     return(
-        <div   className={(scroll < 160) ? "navigation" : " navigation sticky"}>
-           <div className={ ((scroll > 160) && (scrollPrev > scroll))? "navigation__header-scroll-up":"navigation__header-scroll-up none"}>
-               <Header isHeaderScroll={true} />
-           </div>
-
+        <div   className={" navigation sticky"}>
+            <div className={"navigation__header-scroll-up"}>
+                {((scroll > 160) && (scrollPrev > scroll))? <HeaderContainer isHeaderScroll={true} /> :null}
+            </div>
             <div className={"navigation-body"}>
                 <div className="navigation-body__header">
                     <h1>Мужская обувь</h1>
@@ -118,5 +42,6 @@ export const Navigation = ()=>{
             </div>
 
         </div>
+
     )
 }

@@ -1,23 +1,23 @@
-
 import './css/style.scss';
-import {Header} from "./Components/Header/Header";
+// import {Header} from "./Components/Header/Header";
 import React from "react";
-import {Footer} from "./Components/Footer/Footer";
-import {Navigation} from "./Components/Navigation/Navigation";
-import {PaginateProducts} from "./Components/Products/PaginateProfucts";
+import {FooterContainer} from "./Components/Footer/FooterContainer";
+import {NavigationContainer} from "./Components/Navigation/NavigationContainer";
+import {Products} from "./Components/Products/Products";
 import {Route} from "react-router-dom";
 import {ItemPageContainer} from "./Components/Item-page/ItemPageContainer";
 import CartContainer from "./Components/Cart/CartContainer";
+import {HeaderContainer} from "./Components/Header/HeaderContainer";
 
 function App() {
   return (
     <div>
-      <Header/>
-      <Navigation/>
-        <Route path={"/"} render={ ()=><PaginateProducts/> } exact/>
-        <Route path={"/cart"} render={ ()=><CartContainer/> }/>
+      <HeaderContainer/>
+      <NavigationContainer/>
+        <Route path={"/"} render={ ()=><Products/> } exact/>
+        <Route path={"/cart"}  render={ ()=><CartContainer/> }/>
         <Route exact path={"/item/:itemId?"} render={ (props)=> <ItemPageContainer {...props}/> }/>
-      <Footer/>
+      <FooterContainer/>
     </div>
   );
 }

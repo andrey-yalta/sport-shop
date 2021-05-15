@@ -1,17 +1,9 @@
 import React from 'react'
 import footer_logo from '../../assets/img/footer-logo.png'
 import {NavLink} from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux";
-import {setSelectedSex} from "../../redux/shoes-reducer";
-export const Footer =()=>{
-    const dispatch = useDispatch();
-    const category = useSelector(state => state.shopPage.category);
-    const [selectedCategory, setSelectedCategory] = React.useState(category[0])
 
-    const setSelectedCategoryOnClick = React.useCallback((sex) => {
-        setSelectedCategory(sex);
-        dispatch(setSelectedSex(sex));
-    }, [dispatch]);
+export const Footer =({category,selectedCategory,setSelectedCategoryOnClick})=>{
+
     return(
         <footer className="footer">
             <div className="footer__logo">

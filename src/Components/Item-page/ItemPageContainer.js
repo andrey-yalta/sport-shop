@@ -12,14 +12,14 @@ export const ItemPageContainer = (props)=>{
     const shoes = useSelector(state => state.shopPage.shoes)
     React.useEffect(()=>{
         if(shoes.length === 0){
-            debugger;
+
             dispatch(getShoes({id:itemId}));
         }
 
     },[dispatch, itemId, shoes])
 
     const shoesItem = shoes.filter(u=>u.id === itemId)[0]
-    debugger;
+
     const onAddItemToCartHandler = (id,selectedSize,selectedColor)=>{
 
         const addedItem = {...shoes.filter(u=>u.id === id)[0]}

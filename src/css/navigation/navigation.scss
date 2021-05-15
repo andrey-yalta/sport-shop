@@ -1,5 +1,5 @@
 .sticky{
-  position: fixed !important;
+  position: sticky !important;
   z-index: 999;
   background-color: #F5F5F5;
   top: 0;
@@ -84,6 +84,8 @@
   }
   &__menu-down{
     color: #565555;
+    background-color: #F5F5F5;
+    width: 100%;
     ul{
 
       display: flex;

@@ -4,63 +4,13 @@ import header_mobile_loupe from "../../assets/img/header-mobile-loupe.png"
 import header_mobile_menu from "../../assets/img/header-mobile-menu.png"
 import main_logo from "../../assets/img/main-logo.png"
 import {NavLink} from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux";
-import {setSearchLike, setSelectedSex} from "../../redux/shoes-reducer";
-export const Header =({isHeaderScroll = false})=>{
-
-    const dispatch = useDispatch();
-    const category = useSelector(state => state.shopPage.category);
-    const [selectedCategory, setSelectedCategory] = React.useState(category[0])
-    const [searchValue, setSearchValue] = React.useState("")
-    const [isNavMenuOpen, setisNavMenuOpen] = React.useState(false)
-    const [isSearchOpen, setIsSearchOpen] = React.useState(false)
-    const totalCount = useSelector(state => state.cartPage.totalCount);
-
-    const setSelectedCategoryOnClick = React.useCallback((sex) => {
-        setSelectedCategory(sex);
-        dispatch(setSelectedSex(sex));
-    }, [dispatch]);
-
-    const setSearchOnClick = React.useCallback((e) => {
-        e.preventDefault()
-        e.target.reset()
-        dispatch(setSearchLike(searchValue));
-        setSearchValue("")
 
 
-    }, [dispatch, searchValue]);
+export const Header = ({isHeaderScroll,category,setSelectedCategoryOnClick,selectedCategory,
+                        searchRef,handleClickToSearch,isSearchOpen,setSearchOnClick,onSearchInput,
+                        searchValue,totalCount,searchRefMobile,handleClickToSearchMobile,isSearchOpenMobile,
+                        onNavMenuCLick,sortRef,isNavMenuOpen})=>{
 
-    const onSearchInput = (e)=>{
-        setSearchValue(e.target.value)
-
-    }
-    const onNavMenuCLick =()=>{
-        setisNavMenuOpen(!isNavMenuOpen)
-    }
-    const sortRef = React.useRef()
-    const searchRef = React.useRef()
-
-    const handleOutsideClick =(e)=>{
-
-        if(e.path){// проверка на e path для сафари
-            if(!e.path.includes(sortRef.current)){
-                setisNavMenuOpen(false);
-            }
-        }
-        if(e.path){// проверка на e path для сафари
-            if(!e.path.includes(searchRef.current)){
-                setIsSearchOpen(false);
-            }
-        }
-
-    }
-    const handleClickToSearch = ()=>{
-        setIsSearchOpen(!isSearchOpen)
-    }
-    React.useEffect(()=>{
-        document.body.addEventListener("click",handleOutsideClick)
-
-    },[])
     return(
         <header className={isHeaderScroll? "header header__top-scroll":"header "}>
             <div className="header__logo">
@@ -70,7 +20,7 @@ export const Header =({isHeaderScroll = false})=>{
             </div>
             <nav className="header__nav">
                 <ul>
-                    {category.map(u=> <li key={`$_${u}`} onClick={()=>{setSelectedCategoryOnClick(u)}} className={u === selectedCategory ? 'active':''}>   {u}</li>)}
+                    { category.map(u=> <li key={`$_${u}`} onClick={()=>{setSelectedCategoryOnClick(u)}} className={u === selectedCategory ? 'active':''}>   {u}</li>)}
                 </ul>
                 <ul>
                     <li ref={searchRef}>
@@ -86,9 +36,9 @@ export const Header =({isHeaderScroll = false})=>{
             </nav>
             <div className="header__nav-mobile">
                 <NavLink to={"/cart"} ><img src={header_mobile_cart} alt="cart"/></NavLink>
-                <span  ref={searchRef} >
-                    <img onClick={handleClickToSearch} className={isSearchOpen? "none":""}  src={header_mobile_loupe} alt="search"/>
-                    <form onSubmit={ setSearchOnClick} className={isSearchOpen? "header__nav-search":"header__nav-search none"}>
+                <span ref={searchRefMobile} >
+                    <img onClick={handleClickToSearchMobile} className={isSearchOpenMobile? "none":""}  src={header_mobile_loupe} alt="search"/>
+                    <form onSubmit={ setSearchOnClick} className={isSearchOpenMobile? "header__nav-search":"header__nav-search none"}>
                         <input  onChange={onSearchInput} value={searchValue} placeholder={'search...'} type="text" />
                         <button >Поиск</button>
                     </form>
