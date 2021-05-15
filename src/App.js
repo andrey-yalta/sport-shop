@@ -8,6 +8,7 @@ import {Route} from "react-router-dom";
 import {ItemPageContainer} from "./Components/Item-page/ItemPageContainer";
 import CartContainer from "./Components/Cart/CartContainer";
 import {HeaderContainer} from "./Components/Header/HeaderContainer";
+import {Slider} from "./Components/Slider/Slider";
 
 function App() {
   return (

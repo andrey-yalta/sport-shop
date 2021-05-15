@@ -1,0 +1,18 @@
+.slider{
+  width: 100%;
+  min-height: 100px;
+  .slider__info{
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    //display: flex;
+    //justify-content: center;
+    //align-items: center;
+    .section__1{
+      display: inline-block; 
+      width: 100px;
+      height: 100px;
+
+    }
+  }
+}
