@@ -21,7 +21,10 @@
     "redux-thunk": "^2.3.0",
     "serve": "^11.3.2",
     "web-vitals": "^1.1.2",
-    "yup": "^0.32.9"
+    "yup": "^0.32.9",
+    "axios": "^0.21.1",
+    "json-server": "^0.16.3",
+    "react-router-dom": "^5.2.0"
   },
   "scripts": {
     "start": "serve -s build",
