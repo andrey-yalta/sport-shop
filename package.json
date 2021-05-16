@@ -22,12 +22,11 @@
     "yup": "^0.32.9"
   },
   "scripts": {
-    "start": "node server.js",
+    "start": "serve -s build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "db-server": "npx json-server --watch public/db.json --port=3001",
-    "heroku-postbuild": "npm run build"
+    "db-server": "npx json-server --watch public/db.json --port=3001"
   },
   "eslintConfig": {
     "extends": [
