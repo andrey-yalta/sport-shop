@@ -1,6 +1,6 @@
 import * as axios from "axios";
 const instance = axios.create({
-    baseURL:`/shoes/`
+    baseURL:`https://pizza-js-shop.herokuapp.com/shoes`
 
 });
 
