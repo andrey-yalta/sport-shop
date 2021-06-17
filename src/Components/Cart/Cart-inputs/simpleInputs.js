@@ -39,7 +39,7 @@ export const FormicInputs = ()=>{
                         <div className={"cart-inputs__data input"}>
                             <input type="text" name="name" placeholder="Имя" onChange={handleChange} onBlur={handleBlur} value={values.name}/>
                             {touched.name && errors.name && <p className={"cart-inputs__error"}>{ errors.name}</p>}
-                            <input type="text" name="lastName" placeholder="Фамилия" onChange={handleChange} onBlur={handleBlur} value={values.lastName}/>
+                            <input type="text" name="lastName"  placeholder="Фамилия" onChange={handleChange} onBlur={handleBlur} value={values.lastName}/>
                             {touched.lastName && errors.lastName && <p className={"cart-inputs__error"}>{ errors.lastName}</p>}
                             <input type="text" name="fatherName" placeholder="Отчество" onChange={handleChange} onBlur={handleBlur} value={values.fatherName}/>
                             {touched.fatherName && errors.fatherName && <p className={"cart-inputs__error"}>{ errors.fatherName}</p>}
